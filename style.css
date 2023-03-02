@@ -2,6 +2,7 @@
 @import url(https://fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
 @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 
 
@@ -30,7 +31,7 @@ body {
     position: absolute;
     height: 100vh;
     width: 100vw;
-    background-color: rgb(202, 221, 219);
+    background: linear-gradient(rgb(171, 213, 214),rgb(224, 197, 173));
   }
 
   #背景 {
@@ -43,11 +44,12 @@ body {
     transform: translate(-50%,0%);
 
     border-style: solid;
-    border-width: 1px;
+    border-width: 0.5px;
     border-color: white;
     background-color: rgba(255, 255, 255, 0.104);
     border-radius: 10px 70px 10px 0px;
     backdrop-filter: blur(2px) brightness(105%);
+    -webkit-backdrop-filter: blur(2px) brightness(105%);
 
   }
 
@@ -56,7 +58,8 @@ body {
     height: 100vh;
     width: 100vw;
     background-color: rgba(195, 195, 195, 0);
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px) hue-rotate(0deg);
+    -webkit-backdrop-filter: blur(1px) hue-rotate(0deg);
   }
 
   #推薦曲目 {
@@ -76,13 +79,14 @@ body {
     border-radius: 10px 70px 10px 0px;
     backdrop-filter: blur(2px) brightness(105%);
     opacity: 0;
+    color: rgb(255, 255, 255);
 
   }
   #推薦的是  {
 
     position: absolute;
     left: 50%;
-    top: 10vh;
+    top: 15vh;
     height: 80vh;
     width: 70vw;
     max-width: 500px;
@@ -92,6 +96,9 @@ body {
     font-size: 32px;
     display: none;
     opacity: 0;
+    color: rgb(255, 255, 255);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight:800;
 
 
   }
@@ -100,7 +107,7 @@ body {
 
     position: absolute;
     left: 50%;
-    top: 30vh;
+    top: 37vh;
     height: 60vh;
     width: 70vw;
     max-width: 500px;
@@ -110,8 +117,8 @@ body {
     font-size: 25px;
     display: none;
     opacity: 0;
-    font-family:'cwTeXFangSong', serif;
-
+    font-family: 'Righteous', cursive;
+    color: rgb(255, 255, 255);
 
   }
 
@@ -126,11 +133,15 @@ body {
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 10px 50px 10px 10px;;
     backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
+    -webkit-backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
     padding: 5%;
-    font-size: 19px;
+    color: rgb(43, 43, 43);
+    font-size: 18px;
     display: flex;
     justify-content: center; 
     align-items: center; 
+    font-weight:600;
+    font-family: 'Noto Sans TC', sans-serif;
 
   }
 
@@ -145,10 +156,11 @@ body {
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
     backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
+    -webkit-backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
     display: flex;
     justify-content: center; 
     align-items: center; 
-    font-size: 22px;
+    font-size: 18px;
   }
 
   #答2 {
@@ -162,10 +174,11 @@ body {
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
     backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
+    -webkit-backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
     display: flex;
     justify-content: center; 
     align-items: center;
-    font-size: 22px;
+    font-size: 18px;
   }
 
   #答3 {
@@ -179,11 +192,32 @@ body {
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 10px 10px 10px 0px;
     backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
+    -webkit-backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
     display: flex;
     justify-content: center; 
     align-items: center;
-    font-size: 22px;
+    font-size: 18px;
   }
 
 
+  #點群 {
+    position: absolute;
+    left: 50%;
+    bottom: 7.1vh;
+    height: 30px;
+    width: 70px;
+    background-color: rgba(255, 0, 0, 0);
+    transform: translate(-50%,0%);
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center;
+  }
+
+  
+  .點 {
+    height: 4px;
+    width: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+  }
 

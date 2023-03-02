@@ -3,18 +3,18 @@ let rr = document.getElementById('rr');
 let c = 0;
 
 
-
+let 內文已更新 = false;
 let 當前步驟 = 0;
 let 答題計時 = 0;
 let 答案順序隨機化 = [0,0,0];
 let 答案1高亮 = 0;
 let 答案2高亮 = 0;
 let 答案3高亮 = 0;
-let 題庫 = [['1.沒想到（或就如你所知道）上帝真的存在，且你剛好有機會見面祂。<br><br>祂長什麼樣子？','電腦或機械','黑色小貓咪','老人'],
-['2.想像你覺得你會覺得最幸福的一個場面。周圍有幾個人在？','沒有人','1個人','100多個人'],
-['3.離開家鄉將近十年，好不容易回到老家，你意外發現家裡長滿了植物。<br><br>植物狀態如何?','枯死了','開花了','攀爬在所有牆壁上，長得很茂盛'],
-['4.傍晚，你一個人走在街上，你突然記不起來你為什麼會在這裡。<br><br>路怎麼樣？','很暗，人少','很亮，人少','很亮，人多'],
-['5.承上題，突然周邊的行人都停下來看著你。<br><br>為什麼？','你不小心作出很大的聲音','突然一個人大聲叫你','因為你很有名']];
+let 題庫 = [['沒想到（或就如你所知道）上帝真的存在，且你剛好有機會見面祂。<br><br>祂長什麼樣子？','電腦或機械','黑色小貓咪','老人'],
+['想像你覺得你會覺得最幸福的一個場面。周圍有幾個人在？','沒有人','1個人','100多個人'],
+['離開家鄉將近十年，好不容易回到老家，你意外發現家裡長滿了植物。<br><br>植物狀態如何?','枯死了','開花了','攀爬在所有牆壁上，長得很茂盛'],
+['傍晚，你一個人走在街上，你突然記不起來你為什麼會在這裡。<br><br>路怎麼樣？','很暗，人少','很亮，人少','很亮，人多'],
+['承上題，突然周邊的行人都停下來看著你。<br><br>為什麼？','你不小心作出很大的聲音','突然一個人大聲叫你','因為你很有名']];
 let 推薦 = ["barber piano sonata op.26<br><br>barber excursions, no.1<br><br>ligeti atmosphere<br><br>hindemith ludus tonalis<br><br>liszt mephisto polka",
 "couperin les barricades mysterieuses<br><br>bach - petri schafe konnen sicher weiden<br><br>bach - busoni wachet auf, ruft uns die stimme<br><br>schubert - liszt ave maria<br><br>beethoven andante favori",
 "mozart piano sonata no.6 mov.3<br><br>beethoven piano sonata no.26 mov.1<br><br>schumann toccata<br><br>chopin scherzo no.1<br><br>medtner forgotten melodies III op.40",
@@ -95,6 +95,17 @@ let 答3內文 = document.getElementById('答3內文');
 答3.addEventListener('click',按下答案3);
 let 題目內文 = document.getElementById('題目內文');
 let 背景 = document.getElementById('背景');
+let 模糊 = document.getElementById('模糊');
+
+
+let 點1 = document.getElementById('點1');
+let 點2 = document.getElementById('點2');
+let 點3 = document.getElementById('點3');
+let 點4 = document.getElementById('點4');
+let 點5 = document.getElementById('點5');
+
+
+
 
 function 按下答案1(){
     按下答案(1);
@@ -123,6 +134,7 @@ function 按下答案(num){
     當前步驟++;
     總分計算+=答案順序隨機化[num-1];
     答題計時=1;
+    內文已更新 = false;
   }
 }
 
@@ -180,9 +192,21 @@ function 三角函數求偏移(){
 let 推薦曲目 = document.getElementById('推薦曲目');
 let 推薦的是 = document.getElementById('推薦的是');
 
+//點點操控也在這
+
 function 文字操控(){
     if(答題計時<=100){
         if(當前步驟>4){
+            if(答題計時<=20){
+                答1.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案1高亮*答題計時/30)})`; 
+                答2.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案2高亮*答題計時/30)})`;
+                答3.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案3高亮*答題計時/30)})`;
+            }
+            else if(答題計時>20 && 答題計時<=100){
+                答1.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案1高亮*(20-(答題計時-20)/4)/30)})`; 
+                答2.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案2高亮*(20-(答題計時-20)/4)/30)})`; 
+                答3.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案3高亮*(20-(答題計時-20)/4)/30)})`; 
+            }
             答1.style.opacity = `${(100-答題計時)/100}`;
             答2.style.opacity = `${(100-答題計時*1.2)/100}`;
             答3.style.opacity = `${(100-答題計時*1.4)/100}`;
@@ -192,8 +216,26 @@ function 文字操控(){
             題目內文.style.opacity = `${(100-答題計時*1.2)/100}`;
             背景.style.opacity = `${(100-答題計時)/100}`;
             題目.style.opacity = `${(100-答題計時)/100}`;
+            點1.style.opacity = `${(100-答題計時)/100}`;
+            點2.style.opacity = `${(100-答題計時)/100}`;
+            點3.style.opacity = `${(100-答題計時)/100}`;
+            點4.style.opacity = `${(100-答題計時)/100}`;
+            點5.style.opacity = `${(100-答題計時)/100}`;
+
+
         }
         else{
+            if(答題計時<=20){
+                答1.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案1高亮*答題計時/30)})`; 
+                答2.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案2高亮*答題計時/30)})`;
+                答3.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案3高亮*答題計時/30)})`;
+            }
+            else if(答題計時>20 && 答題計時<=100){
+                答1.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案1高亮*(20-(答題計時-20)/4)/30)})`; 
+                答2.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案2高亮*(20-(答題計時-20)/4)/30)})`; 
+                答3.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案3高亮*(20-(答題計時-20)/4)/30)})`; 
+            }
+
             答1.style.opacity = `${(100-答題計時/2)/100}`;
             答2.style.opacity = `${(100-答題計時/2)/100}`;
             答3.style.opacity = `${(100-答題計時/2)/100}`;
@@ -201,19 +243,45 @@ function 文字操控(){
             答2內文.style.opacity = `${((100-答題計時*1.6)/100)*-(答案2高亮-1)+答案2高亮-答案2高亮/(100-答題計時)*5}`;
             答3內文.style.opacity = `${((100-答題計時*1.8)/100)*-(答案3高亮-1)+答案3高亮-答案3高亮/(100-答題計時)*5}`;
             題目內文.style.opacity = `${(100-答題計時*1.2)/100}`;
-            
+
         }
+
+        if(當前步驟>0){
+            if(當前步驟==1){
+                點1.style.backgroundColor= `rgba(255, 255, 255, ${0.8-答題計時/200})`;
+                點1.style.transform = `scale(${(100-答題計時)/200+1}, ${(100-答題計時)/200+1})`;
+            }
+            if(當前步驟==2){
+                點2.style.backgroundColor= `rgba(255, 255, 255, ${0.8-答題計時/200})`;
+                點2.style.transform = `scale(${(100-答題計時)/200+1}, ${(100-答題計時)/200+1})`;
+            }
+            if(當前步驟==3){
+                點3.style.backgroundColor= `rgba(255, 255, 255, ${0.8-答題計時/200})`;
+                點3.style.transform = `scale(${(100-答題計時)/200+1}, ${(100-答題計時)/200+1})`;
+            }
+            if(當前步驟==4){
+                點4.style.backgroundColor= `rgba(255, 255, 255, ${0.8-答題計時/200})`;
+                點4.style.transform = `scale(${(100-答題計時)/200+1}, ${(100-答題計時)/200+1})`;
+            }
+            if(當前步驟==5){
+                點5.style.backgroundColor= `rgba(255, 255, 255, ${0.8-答題計時/200})`;
+                點5.style.transform = `scale(${(100-答題計時)/200+1}, ${(100-答題計時)/200+1})`;
+            }
+        }
+
     }
     else{
         if(當前步驟<5){
-            if(答題計時==101){
+            if(答題計時>=101&&內文已更新==false){
 
-            題目隨機化();
-            題目內文.innerHTML=`${題庫[當前步驟][0]}`;
-            答1內文.innerHTML=`${題庫[當前步驟][答案順序隨機化[0]+1]}`;
-            答2內文.innerHTML=`${題庫[當前步驟][答案順序隨機化[1]+1]}`;
-            答3內文.innerHTML=`${題庫[當前步驟][答案順序隨機化[2]+1]}`;
-        }
+                題目隨機化();
+                題目內文.innerHTML=`${題庫[當前步驟][0]}`;
+                答1內文.innerHTML=`${題庫[當前步驟][答案順序隨機化[0]+1]}`;
+                答2內文.innerHTML=`${題庫[當前步驟][答案順序隨機化[1]+1]}`;
+                答3內文.innerHTML=`${題庫[當前步驟][答案順序隨機化[2]+1]}`;
+
+                //內文已更新 = true;
+            }
             答1.style.opacity = `${答題計時/2/100}`;
             答2.style.opacity = `${答題計時/2/100}`;
             答3.style.opacity = `${答題計時/2/100}`;
@@ -221,9 +289,9 @@ function 文字操控(){
             答2內文.style.opacity = `${(100-(200-答題計時)*1.6)/100}`;
             答3內文.style.opacity = `${(100-(200-答題計時)*1.8)/100}`;
             題目內文.style.opacity = `${(100-(200-答題計時)*1.2)/100}`;
-    }
-    else{
-        if(答題計時==101){
+        }
+        else{
+        if(答題計時>=101 && 內文已更新==false){
             //生成回答
             if(總分計算<=1){
                 推薦清單.innerHTML = 推薦[0];
@@ -246,13 +314,42 @@ function 文字操控(){
             推薦曲目.style.display = 'flex';
             推薦的是.style.display = 'flex';
             推薦清單.style.display = 'flex';
+            內文已更新 = true;
             }
         推薦曲目.style.opacity = `${(答題計時-100)/100}`;
         推薦的是.style.opacity = `${(答題計時-100)/100}`;
         推薦清單.style.opacity = `${(答題計時-100)/100}`;
         }
+
+        if(當前步驟==0){
+            點1.style.backgroundColor= `rgba(255, 255, 255, ${0.3+(答題計時-100)/200})`;
+            點1.style.transform = `scale(${1.5-(200-答題計時)/200}, ${(1.5-(200-答題計時)/200)}`;
+        }
+        if(當前步驟==1){
+            點2.style.backgroundColor= `rgba(255, 255, 255, ${0.3+(答題計時-100)/200})`;
+            點2.style.transform = `scale(${1.5-(200-答題計時)/200}, ${(1.5-(200-答題計時)/200)}`;
+        }
+        if(當前步驟==2){
+            點3.style.backgroundColor= `rgba(255, 255, 255, ${0.3+(答題計時-100)/200})`;
+            點3.style.transform = `scale(${1.5-(200-答題計時)/200}, ${(1.5-(200-答題計時)/200)}`;
+        }
+        if(當前步驟==3){
+            點4.style.backgroundColor= `rgba(255, 255, 255, ${0.3+(答題計時-100)/200})`;
+            點4.style.transform = `scale(${1.5-(200-答題計時)/200}, ${(1.5-(200-答題計時)/200)}`;
+        }
+        if(當前步驟==4){
+            點5.style.backgroundColor= `rgba(255, 255, 255, ${0.3+(答題計時-100)/200})`;
+            點5.style.transform = `scale(${1.5-(200-答題計時)/200}, ${(1.5-(200-答題計時)/200)}`;
+        }
+
     }
 }
+
+
+function 色相轉換(){
+    模糊.style = `position: absolute;height: 100vh;width: 100vw;background-color: rgba(195, 195, 195, 0);-webkit-backdrop-filter: blur(1px) hue-rotate(${(當前步驟-1)*72+72/200*答題計時}deg); backdrop-filter: blur(1px) hue-rotate(${(當前步驟-1)*72+72/200*答題計時}deg)`;
+}
+
 
 let 方向 = 1;
 
@@ -293,8 +390,9 @@ function loop(){
   畫音符();
 
   if(答題計時>0){
-    答題計時++;
+    答題計時+=1.9;
     文字操控();
+    色相轉換();
     if(答題計時>200){
         答題計時=0;
     }
