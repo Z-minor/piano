@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@900&display=swap');
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+
+
+* {
+
+    box-sizing: border-box;
+  
+  }
+
+body {
+  
+    position:static;
+    margin: 0;
+    overflow: scroll;
+    /*font-family: 'Noto Serif TC', serif;
+    font-family: 'cwTeXFangSong', serif;*/
+    font-family: "cwTeXYen", sans-serif;
+    /*font-family: 'Noto Sans TC', sans-serif;*/
+    color:rgb(33, 33, 33);
+  
+  }
+  
+
+  
+  #容器 {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(202, 221, 219);
+  }
+
+  #背景 {
+    position: absolute;
+    left: 50%;
+    top: 7vh;
+    height: 86vh;
+    width: calc(70vw + 6vh);
+    max-width: calc(500px + 6vh);
+    transform: translate(-50%,0%);
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0.104);
+    border-radius: 10px 70px 10px 0px;
+    backdrop-filter: blur(2px) brightness(105%);
+
+  }
+
+  #模糊 {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(195, 195, 195, 0);
+    backdrop-filter: blur(1px);
+  }
+
+  #推薦曲目 {
+
+    position: absolute;
+    left: 50%;
+    top: 7vh;
+    height: 86vh;
+    width: calc(70vw + 6vh);
+    max-width: calc(500px + 6vh);
+    transform: translate(-50%,0%);
+    display: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0.104);
+    border-radius: 10px 70px 10px 0px;
+    backdrop-filter: blur(2px) brightness(105%);
+    opacity: 0;
+
+  }
+  #推薦的是  {
+
+    position: absolute;
+    left: 50%;
+    top: 10vh;
+    height: 80vh;
+    width: 70vw;
+    max-width: 500px;
+    transform: translate(-50%,0%);
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 10px 50px 10px 0px;;
+    font-size: 32px;
+    display: none;
+    opacity: 0;
+
+
+  }
+
+  #推薦清單{
+
+    position: absolute;
+    left: 50%;
+    top: 30vh;
+    height: 60vh;
+    width: 70vw;
+    max-width: 500px;
+    transform: translate(-50%,0%);
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 10px 50px 10px 0px;;
+    font-size: 25px;
+    display: none;
+    opacity: 0;
+    font-family:'cwTeXFangSong', serif;
+
+
+  }
+
+  #題目 {
+    position: absolute;
+    left: 50%;
+    top: 10vh;
+    height: 30vh;
+    width: 70vw;
+    max-width: 500px;
+    transform: translate(-50%,0%);
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 10px 50px 10px 10px;;
+    backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
+    padding: 5%;
+    font-size: 19px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+
+  }
+
+  #答1 {
+    position: absolute;
+    left: 50%;
+    top: 44vh;
+    height: 13vh;
+    width: 70vw;
+    max-width: 500px;
+    transform: translate(-50%,0%);
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    font-size: 22px;
+  }
+
+  #答2 {
+    position: absolute;
+    left: 50%;
+    top: 60vh;
+    height: 13vh;
+    width: 70vw;
+    max-width: 500px;
+    transform: translate(-50%,0%);
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    font-size: 22px;
+  }
+
+  #答3 {
+    position: absolute;
+    left: 50%;
+    top: 76vh;
+    height: 13vh;
+    width: 70vw;
+    max-width: 500px;
+    transform: translate(-50%,0%);
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 10px 10px 10px 0px;
+    backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    font-size: 22px; 
+  }
+
+
+
