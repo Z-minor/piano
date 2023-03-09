@@ -103,7 +103,7 @@ body {
     color: rgb(255, 255, 255);
 
   }
-  #推薦的是  {
+  #推薦的是 {
 
     position: absolute;
     left: 50%;
@@ -124,23 +124,45 @@ body {
 
   }
 
-  #推薦清單{
+  #推薦清單1{
 
     position: absolute;
     left: 50%;
     top: 37vh;
-    height: 60vh;
+    height: 12vh;
     width: 70vw;
     max-width: 500px;
     transform: translate(-50%,0%);
-    background-color: rgba(255, 255, 255, 0);
-    border-radius: 10px 50px 10px 0px;;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px 10px 10px 10px;;
     font-size: 25px;
     display: none;
     opacity: 0;
     font-family: 'Righteous', cursive;
     color: rgb(255, 255, 255);
+    align-items: center;
+    padding: 15px;
 
+  }
+
+  #推薦清單2{
+
+    position: absolute;
+    left: 50%;
+    top: 60vh;
+    height: 12vh;
+    width: 70vw;
+    max-width: 500px;
+    transform: translate(-50%,0%);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px 10px 10px 10px;;
+    font-size: 25px;
+    display: none;
+    opacity: 0;
+    font-family: 'Righteous', cursive;
+    color: rgb(255, 255, 255);
+    align-items: center; 
+    padding: 15px;
   }
 
   #題目 {

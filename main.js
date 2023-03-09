@@ -11,17 +11,27 @@ let 答案順序隨機化 = [0,0,0];
 let 答案1高亮 = 0;
 let 答案2高亮 = 0;
 let 答案3高亮 = 0;
+let 推薦1序號 = 0;
+let 推薦2序號 = 0;
+let 連結1 = "";
+let 連結2 = "";
 let 題庫 = [['沒想到（或就如你所知道）上帝真的存在，且你剛好有機會見面祂。<br><br>祂長什麼樣子？','電腦或機械','黑色小貓咪','老人'],
 ['想像你覺得你會覺得最幸福的一個場面。周圍有幾個人在？','沒有人','1個人','100多個人'],
 ['離開家鄉將近十年，好不容易回到老家，你意外發現家裡長滿了植物。<br><br>植物狀態如何?','枯死了','開花了','攀爬在所有牆壁上，長得很茂盛'],
 ['傍晚，你一個人走在街上，你突然記不起來你為什麼會在這裡。<br><br>路怎麼樣？','很暗，人少','很亮，人少','很亮，人多'],
 ['承上題，突然周邊的行人都停下來看著你。<br><br>為什麼？','你不小心作出很大的聲音','突然一個人大聲叫你','因為你很有名']];
-let 推薦 = ["barber piano sonata op.26<br><br>barber excursions, no.1<br><br>ligeti atmosphere<br><br>hindemith ludus tonalis<br><br>liszt mephisto polka",
-"couperin les barricades mysterieuses<br><br>bach - petri schafe konnen sicher weiden<br><br>bach - busoni wachet auf, ruft uns die stimme<br><br>schubert - liszt ave maria<br><br>beethoven andante favori",
-"mozart piano sonata no.6 mov.3<br><br>beethoven piano sonata no.26 mov.1<br><br>schumann toccata<br><br>chopin scherzo no.1<br><br>medtner forgotten melodies III op.40",
-"poulenc Melancolie<br><br>brahms klavierstucke op.118 no.2<br><br>beethoven piano sonata no.29 mov.4<br><br>ravel jeux d'eau<br><br>ravel le tombeau de couperin no.6",
-"chopin sonata no.3<br><br>liszt ballade no.2<br><br>schumann etude symphoniques<br><br>schubert wanderer fantasie<br><br>brahms variations on a theme by paganini",
-"wagner - liszt tannhauser overture<br><br>alkan sonata les quatre ages 2nd movement<br><br>tausig das geisterschiff<br><br>prokofiev piano concerto no.2"];
+let 推薦 = [["barber piano sonata op.26","barber excursions, no.1","ligeti atmosphere","hindemith ludus tonalis","liszt mephisto polka"],
+["couperin les barricades mysterieuses","bach - petri schafe konnen sicher weiden","bach - busoni wachet auf, ruft uns die stimme","schubert - liszt ave maria","beethoven andante favori"],
+["mozart piano sonata no.6 mov.3","beethoven piano sonata no.32 mov.2","beethoven piano sonata no.29 mov.4","schumann toccata","medtner forgotten melodies III op.40"],
+["poulenc Melancolie","brahms klavierstucke op.118 no.2","chopin scherzo no.1","ravel jeux d'eau","ravel le tombeau de couperin no.6"],
+["chopin sonata no.3","liszt ballade no.2","schumann etude symphoniques","schubert wanderer fantasie","brahms variations on a theme by paganini"],
+["wagner - liszt tannhauser overture","alkan sonata les quatre ages 2nd movement","tausig das geisterschiff","prokofiev piano concerto no.2"]];
+let 連結群 = [["https://youtu.be/lCBNjslju8o","https://youtu.be/UkaXAA8P4_8","https://youtu.be/qPr4vRRQKvQ","https://youtu.be/ok53QwG6dTg","https://youtu.be/PEInHhTac24"],
+["https://youtu.be/uZWf9neUf1I","https://youtu.be/YsUgqO9ZFUk","https://youtu.be/YnUNxf0jkTE","https://youtu.be/GmGEEVFAoDU","https://youtu.be/iaNwUTDLxbQ"],
+["https://youtu.be/TW-K7jfBv4w","https://youtu.be/syetlcLqIGA","https://youtu.be/wPi17PSXbj0","https://youtu.be/XT68hCACDQc","https://youtu.be/eWnZGNwikho"],
+["https://youtu.be/UWR7_Z7YThA","https://youtu.be/cb8QPgQHsag","https://youtu.be/38VShqkukWY","https://youtu.be/J_36x1_LKgg","https://youtu.be/UORxpTn-pOE"],
+["https://youtu.be/tFYsSzek_4g","https://youtu.be/m90vsN3SjvM","https://youtu.be/O20CiudpKPg","https://youtu.be/OJQQ0fPemaE","https://youtu.be/1EIE78D0m1g"],
+["https://youtu.be/13zFjZ7OLDw","https://youtu.be/sotFMQRZCx0","https://youtu.be/YuoP2RIqyrs","https://youtu.be/xcte8hM6kYA"]]
 
 let 總分計算 = 0;
 
@@ -63,7 +73,7 @@ let y中心 = 高/2;
 let 當前位子 = 0;
 let 起始位子 = 2;
 let 方形數量 = 50;
-let 音符數量 = 100;
+let 音符數量 = 110;
 let x偏移 = 0;
 let y偏移 = 0;
 let 軸心旋轉半徑 = 投影螢幕長寬/8;
@@ -209,6 +219,8 @@ function 三角函數求偏移(){
 
 let 推薦曲目 = document.getElementById('推薦曲目');
 let 推薦的是 = document.getElementById('推薦的是');
+let 推薦清單1 = document.getElementById('推薦清單1');
+let 推薦清單2 = document.getElementById('推薦清單2');
 
 //點點操控也在這
 
@@ -218,6 +230,9 @@ function 文字操控(){
     if(答題計時<=100){
         if(當前步驟>4){
             if(答題計時<=20){
+                答1.style.transform = `translate(-50%,0%) scale(${1+答案1高亮*答題計時/1600})`;
+                答2.style.transform = `translate(-50%,0%) scale(${1+答案2高亮*答題計時/1600})`;
+                答3.style.transform = `translate(-50%,0%) scale(${1+答案3高亮*答題計時/1600})`;
                 答1.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案1高亮*答題計時/30)})`; 
                 答2.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案2高亮*答題計時/30)})`;
                 答3.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案3高亮*答題計時/30)})`;
@@ -226,6 +241,9 @@ function 文字操控(){
                 答3.style.borderColor = `rgba(255, 255, 255, ${(答案3高亮*答題計時/10)})`;  
             }
             else if(答題計時>20 && 答題計時<=100){
+                答1.style.transform = `translate(-50%,0%) scale(${1+((20/1600)-(答題計時-20)/4/1600)*答案1高亮})`;
+                答2.style.transform = `translate(-50%,0%) scale(${1+((20/1600)-(答題計時-20)/4/1600)*答案2高亮})`;
+                答3.style.transform = `translate(-50%,0%) scale(${1+((20/1600)-(答題計時-20)/4/1600)*答案3高亮})`;
                 答1.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案1高亮*(20-(答題計時-20)/4)/30)})`; 
                 答2.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案2高亮*(20-(答題計時-20)/4)/30)})`; 
                 答3.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案3高亮*(20-(答題計時-20)/4)/30)})`; 
@@ -252,6 +270,9 @@ function 文字操控(){
         }
         else{
             if(答題計時<=20){
+                答1.style.transform = `translate(-50%,0%) scale(${1+答案1高亮*答題計時/1600})`;
+                答2.style.transform = `translate(-50%,0%) scale(${1+答案2高亮*答題計時/1600})`;
+                答3.style.transform = `translate(-50%,0%) scale(${1+答案3高亮*答題計時/1600})`;
                 答1.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案1高亮*答題計時/30)})`; 
                 答2.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案2高亮*答題計時/30)})`;
                 答3.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案3高亮*答題計時/30)})`;
@@ -260,6 +281,9 @@ function 文字操控(){
                 答3.style.borderColor = `rgba(255, 255, 255, ${(答案3高亮*答題計時/10)})`;  
             }
             else if(答題計時>20 && 答題計時<=100){
+                答1.style.transform = `translate(-50%,0%) scale(${1+((20/1600)-(答題計時-20)/4/1600)*答案1高亮})`;
+                答2.style.transform = `translate(-50%,0%) scale(${1+((20/1600)-(答題計時-20)/4/1600)*答案2高亮})`;
+                答3.style.transform = `translate(-50%,0%) scale(${1+((20/1600)-(答題計時-20)/4/1600)*答案3高亮})`;
                 答1.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案1高亮*(20-(答題計時-20)/4)/30)})`; 
                 答2.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案2高亮*(20-(答題計時-20)/4)/30)})`; 
                 答3.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案3高亮*(20-(答題計時-20)/4)/30)})`; 
@@ -334,26 +358,107 @@ function 文字操控(){
           if(答題計時>=101 && 內文已更新==false){
             
             if(總分計算<=1){
-                推薦清單.innerHTML = 推薦[0];
+
+                推薦1序號 = Math.floor(Math.random()*推薦[0].length);
+                推薦清單1.innerHTML = 推薦[0][推薦1序號];
+                連結1 = `${連結群[0][推薦1序號]}`
+                
+                while(1){
+                    推薦2序號 = Math.floor(Math.random()*推薦[0].length);
+                    if(推薦2序號 == 推薦1序號){
+                        continue;
+                    }
+                    推薦清單2.innerHTML = 推薦[0][推薦2序號];
+                    連結2 = `${連結群[0][推薦2序號]}`
+                    break;
+                }
+
+
             }
             else if(總分計算<=3){
-                推薦清單.innerHTML = 推薦[1];
+                推薦1序號 = Math.floor(Math.random()*推薦[1].length);
+                推薦清單1.innerHTML = 推薦[1][推薦1序號];
+                連結1 = `${連結群[1][推薦1序號]}`
+                
+                
+                while(1){
+                    推薦2序號 = Math.floor(Math.random()*推薦[1].length);
+                    if(推薦2序號 == 推薦1序號){
+                        continue;
+                    }
+                    推薦清單2.innerHTML = 推薦[1][推薦2序號];
+                    連結2 = `${連結群[1][推薦2序號]}`
+                    break;
+                }
             }
             else if(總分計算<=5){
-                推薦清單.innerHTML = 推薦[2];
+                推薦1序號 = Math.floor(Math.random()*推薦[2].length);
+                推薦清單1.innerHTML = 推薦[2][推薦1序號];
+                連結1 = `${連結群[2][推薦1序號]}`
+                
+                
+                while(1){
+                    推薦2序號 = Math.floor(Math.random()*推薦[2].length);
+                    if(推薦2序號 == 推薦1序號){
+                        continue;
+                    }
+                    推薦清單2.innerHTML = 推薦[2][推薦2序號];
+                    連結2 = `${連結群[2][推薦2序號]}`
+                    break;
+                }
             }
             else if(總分計算<=7){
-                推薦清單.innerHTML = 推薦[3];
+                推薦1序號 = Math.floor(Math.random()*推薦[3].length);
+                推薦清單1.innerHTML = 推薦[3][推薦1序號];
+                連結1 = `${連結群[3][推薦1序號]}`
+                
+                
+                while(1){
+                    推薦2序號 = Math.floor(Math.random()*推薦[3].length);
+                    if(推薦2序號 == 推薦1序號){
+                        continue;
+                    }
+                    推薦清單2.innerHTML = 推薦[3][推薦2序號];
+                    連結2 = `${連結群[3][推薦2序號]}`
+                    break;
+                }
             }
             else if(總分計算<=9){
-                推薦清單.innerHTML = 推薦[4];
+                推薦1序號 = Math.floor(Math.random()*推薦[4].length);
+                推薦清單1.innerHTML = 推薦[4][推薦1序號];
+                連結1 = `${連結群[4][推薦1序號]}`
+                
+                
+                while(1){
+                    推薦2序號 = Math.floor(Math.random()*推薦[4].length);
+                    if(推薦2序號 == 推薦1序號){
+                        continue;
+                    }
+                    推薦清單2.innerHTML = 推薦[4][推薦2序號];
+                    連結2 = `${連結群[4][推薦2序號]}`
+                    break;
+                }
             }
             else{
-                推薦清單.innerHTML = 推薦[5];
+                推薦1序號 = Math.floor(Math.random()*推薦[5].length);
+                推薦清單1.innerHTML = 推薦[5][推薦1序號];
+                連結1 = `${連結群[5][推薦1序號]}`
+                
+                
+                while(1){
+                    推薦2序號 = Math.floor(Math.random()*推薦[5].length);
+                    if(推薦2序號 == 推薦1序號){
+                        continue;
+                    }
+                    推薦清單2.innerHTML = 推薦[5][推薦2序號];
+                    連結2 = `${連結群[5][推薦2序號]}`
+                    break;
+                }
             }
             推薦曲目.style.display = 'flex';
             推薦的是.style.display = 'flex';
-            推薦清單.style.display = 'flex';
+            推薦清單1.style.display = 'flex';
+            推薦清單2.style.display = 'flex';
             內文已更新 = true;
             }
 
@@ -362,7 +467,8 @@ function 文字操控(){
 
         推薦曲目.style.opacity = `${(答題計時-600)/100}`;
         推薦的是.style.opacity = `${(答題計時-600)/100}`;
-        推薦清單.style.opacity = `${(答題計時-600)/100}`;
+        推薦清單2.style.opacity = `${(答題計時-600)/100}`;
+        推薦清單1.style.opacity = `${(答題計時-600)/100}`;
 
 
 
@@ -401,8 +507,26 @@ function 色相轉換(){
     模糊.style = `position: absolute;height: 100vh;width: 100vw;background-color: rgba(195, 195, 195, 0);-webkit-backdrop-filter: blur(1px) hue-rotate(${(當前步驟-1)*72+72/200*向前衝計時}deg); backdrop-filter: blur(1px) hue-rotate(${(當前步驟-1)*72+72/200*向前衝計時}deg) invert(${反相})`;
 }
 
+function 測 (){
+    alert("This is a test!"); 
+}
 
 let 方向 = 1;
+
+function 添加超連結(){
+    推薦清單1.addEventListener('click',前往連結1);
+    推薦清單2.addEventListener('click',前往連結2);
+}
+
+function 前往連結1(){
+    window.open(`${連結1}`);
+}
+
+function 前往連結2(){
+    window.open(`${連結2}`);
+}
+
+
 
 function loop(){
   if(c==0){
@@ -454,6 +578,7 @@ function loop(){
     else{
         if(答題計時>700){
             答題計時=0;
+            添加超連結();
         }
     }
   }
