@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@900&display=swap');
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+
+
+* {
+
+    box-sizing: border-box;
+  
+  }
+
+body {
+  
+    position:static;
+    margin: 0;
+    overflow: scroll;
+    /*font-family: 'Noto Serif TC', serif;
+    font-family: 'cwTeXFangSong', serif;*/
+    font-family: "cwTeXYen", sans-serif;
+    /*font-family: 'Noto Sans TC', sans-serif;*/
+    color:rgb(33, 33, 33);
+  
+  }
+
+  #變白 {
+    
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    
+    display: none;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(10px) brightness(120%);
+    -webkit-backdrop-filter: blur(10px) brightness(300%);
+    opacity: 0;
+
+
+
+  }
+  
+
+  
+  #容器 {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(rgb(171, 213, 214),rgb(224, 197, 173));
+  }
+
+  #背景 {
+    position: absolute;
+    left: 50%;
+    top: 7vh;
+    height: 86vh;
+    width: calc(70vw + 6vh);
+    max-width: calc(500px + 6vh);
+    transform: translate(-50%,0%);
+
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0.104);
+    border-radius: 10px 70px 10px 0px;
+    backdrop-filter: blur(2px) brightness(105%);
+    -webkit-backdrop-filter: blur(2px) brightness(105%);
+
+  }
+
+  #模糊 {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(195, 195, 195, 0);
+    backdrop-filter: blur(1px) hue-rotate(0deg);
+    -webkit-backdrop-filter: blur(1px) hue-rotate(0deg);
+  }
+
+  #推薦曲目 {
+
+    position: absolute;
+    left: 50%;
+    top: 7vh;
+    height: 86vh;
+    width: calc(70vw + 6vh);
+    max-width: calc(500px + 6vh);
+    transform: translate(-50%,0%);
+    display: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0.104);
+    border-radius: 10px 70px 10px 0px;
+    backdrop-filter: blur(2px) brightness(105%);
+    -webkit-backdrop-filter: blur(2px) brightness(140%);
+    opacity: 0;
+    color: rgb(255, 255, 255);
+
+  }
+  #推薦的是 {
+
+    position: absolute;
+    left: 50%;
+    top: 15vh;
+    height: 80vh;
+    width: 70vw;
+    max-width: 500px;
+    transform: translate(-50%,0%);
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 10px 50px 10px 0px;;
+    font-size: 32px;
+    display: none;
+    opacity: 0;
+    color: rgb(255, 255, 255);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight:800;
+
+
+  }
+
+  #推薦清單1{
+
+    position: absolute;
+    left: 50%;
+    top: 37vh;
+    height: 12vh;
+    width: 70vw;
+    max-width: 500px;
+    transform: translate(-50%,0%);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px 10px 10px 10px;;
+    font-size: 25px;
+    display: none;
+    opacity: 0;
+    font-family: 'Righteous', cursive;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    padding: 15px;
+
+  }
+
+  #推薦清單2{
+
+    position: absolute;
+    left: 50%;
+    top: 60vh;
+    height: 12vh;
+    width: 70vw;
+    max-width: 500px;
+    transform: translate(-50%,0%);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px 10px 10px 10px;;
+    font-size: 25px;
+    display: none;
+    opacity: 0;
+    font-family: 'Righteous', cursive;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center; 
+    padding: 15px;
+  }
+
+  #題目 {
+    position: absolute;
+    left: 50%;
+    top: 10vh;
+    height: 30vh;
+    width: 70vw;
+    max-width: 500px;
+    transform: translate(-50%,0%);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px 50px 10px 10px;;
+    backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
+    -webkit-backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
+    padding: 5%;
+    color: rgb(43, 43, 43);
+    font-size: 18px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    font-weight:600;
+    font-family: 'Noto Sans TC', sans-serif;
+    
+
+  }
+
+  #答1 {
+    position: absolute;
+    left: 50%;
+    top: 44vh;
+    height: 13vh;
+    width: 70vw;
+    max-width: 500px;
+    transform: translate(-50%,0%);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
+    -webkit-backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    font-size: 18px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgba(255, 255, 255, 0);
+  }
+
+  #答2 {
+    position: absolute;
+    left: 50%;
+    top: 60vh;
+    height: 13vh;
+    width: 70vw;
+    max-width: 500px;
+    transform: translate(-50%,0%);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
+    -webkit-backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    font-size: 18px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgba(255, 255, 255, 0);
+  }
+
+  #答3 {
+    position: absolute;
+    left: 50%;
+    top: 76vh;
+    height: 13vh;
+    width: 70vw;
+    max-width: 500px;
+    transform: translate(-50%,0%);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px 10px 10px 0px;
+    backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
+    -webkit-backdrop-filter: blur(5px) hue-rotate(5deg) brightness(105%);
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    font-size: 18px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgba(255, 255, 255, 0);
+  }
+
+
+  #點群 {
+    position: relative;
+    left: 50%;
+    top: 95%;
+    height: 30px;
+    width: 70px;
+    background-color: rgba(255, 0, 0, 0);
+    transform: translate(-50%,0%);
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center;
+  }
+
+  
+  .點 {
+    height: 4px;
+    width: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+  }
+
