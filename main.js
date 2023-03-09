@@ -153,18 +153,20 @@ function 按下答案(num){
 
 //初始化方形線條
 /*let 方形html ='';
-for(let i = 0;i<方形數量 ; i++){
+for(let i = 0;i<音符數量 ; i++){
   方形html+=`<rect id="b${i}" x="10" y="10" width="30" height="30" stroke="rgb(100, 200, 200)" fill="transparent" stroke-width="1"/>`
 }
-document.getElementById('方群').innerHTML = 方形html;
-*/
+document.getElementById('方群').innerHTML = 方形html;*/
+
+
+
 
 //初始化音符
 let 音符html ='';
 for(let i = 0;i<音符數量 ; i++){
     音符html+=`<path id="b${i}" d="M 0 58 C 0 74, 6 78, 18 78, 31 78, 36 75, 36 59, 36 51, 36 35, 36 29, 36 37, 59 34, 59 40, 59 11, 42 19, 32 1, 32 5, 32 8, 32 45, 31 40, 25 40, 18 40, 7 40, 0 43, 0 58 " stroke="rgb(255,255,255)" stroke-width="0" stroke-linejoin="round" fill="transparent" stroke-opacity="0.3"/>`
 }
-document.getElementById('方群').innerHTML = 音符html;
+document.getElementById('音群').innerHTML = 音符html;
 
 
 //for(let k = Math.floor(當前步驟)-1 ;k<音符數量;k++){
@@ -200,7 +202,7 @@ function 畫音符(){
 
 function 畫方(){
   
- for(let k = 0;k<方形數量;k++){
+ for(let k = 0;k<音符數量;k++){
    
    if(當前位子-起始位子<k-0.001){
      document.getElementById(`b${k}`).setAttribute('x', `${ x中心 - ((投影螢幕半徑 - x偏移) * 起始位子 / (k + 起始位子 - 當前位子)) }`);
