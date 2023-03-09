@@ -2,10 +2,11 @@
 let rr = document.getElementById('rr');
 let c = 0;
 
-
+let 反相 = 0;
 let 內文已更新 = false;
 let 當前步驟 = 0;
 let 答題計時 = 0;
+let 向前衝計時 = 0;
 let 答案順序隨機化 = [0,0,0];
 let 答案1高亮 = 0;
 let 答案2高亮 = 0;
@@ -103,6 +104,7 @@ let 點2 = document.getElementById('點2');
 let 點3 = document.getElementById('點3');
 let 點4 = document.getElementById('點4');
 let 點5 = document.getElementById('點5');
+let 變白 = document.getElementById('變白');
 
 
 
@@ -134,6 +136,7 @@ function 按下答案(num){
     當前步驟++;
     總分計算+=答案順序隨機化[num-1];
     答題計時=1;
+    向前衝計時=1;
     內文已更新 = false;
   }
 }
@@ -149,12 +152,27 @@ document.getElementById('方群').innerHTML = 方形html;
 //初始化音符
 let 音符html ='';
 for(let i = 0;i<音符數量 ; i++){
-    音符html+=`<path id="b${i}" d="M 0 58 C 0 74, 6 78, 18 78, 31 78, 36 75, 36 59, 36 51, 36 35, 36 29, 36 37, 59 34, 59 40, 59 11, 42 19, 32 1, 32 5, 32 8, 32 45, 31 40, 25 40, 18 40, 7 40, 0 43, 0 58 " stroke="rgb(255,255,255)" stroke-width="1" stroke-linejoin="round" fill="transparent" stroke-opacity="0.3"/>`
+    音符html+=`<path id="b${i}" d="M 0 58 C 0 74, 6 78, 18 78, 31 78, 36 75, 36 59, 36 51, 36 35, 36 29, 36 37, 59 34, 59 40, 59 11, 42 19, 32 1, 32 5, 32 8, 32 45, 31 40, 25 40, 18 40, 7 40, 0 43, 0 58 " stroke="rgb(255,255,255)" stroke-width="0" stroke-linejoin="round" fill="transparent" stroke-opacity="0.3"/>`
 }
 document.getElementById('方群').innerHTML = 音符html;
 
+
+//for(let k = Math.floor(當前步驟)-1 ;k<音符數量;k++){
+
+    let 極限繪製 = 0;
+
 function 畫音符(){
-    for(let k = 0;k<音符數量;k++){
+
+    極限繪製 = Math.floor(當前位子)+30;
+
+    if(極限繪製>音符數量){
+        極限繪製=音符數量;
+    }
+
+    for(let k = Math.floor(當前位子)-2 ;k<極限繪製;k++){
+        if(k<0){
+            k=0;
+        }
         x副偏移 = Math.sin(當前弧度 + k /2 + c/40)*軸心旋轉半徑/5;
         y副偏移 = Math.cos(當前弧度 + k /2 + c/40)*軸心旋轉半徑/5;
         if(當前位子-起始位子<k-0.1){
@@ -194,6 +212,8 @@ let 推薦的是 = document.getElementById('推薦的是');
 
 //點點操控也在這
 
+let 隨機化稀釋 = 0;
+
 function 文字操控(){
     if(答題計時<=100){
         if(當前步驟>4){
@@ -201,11 +221,17 @@ function 文字操控(){
                 答1.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案1高亮*答題計時/30)})`; 
                 答2.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案2高亮*答題計時/30)})`;
                 答3.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案3高亮*答題計時/30)})`;
+                答1.style.borderColor = `rgba(255, 255, 255, ${(答案1高亮*答題計時/10)})`;
+                答2.style.borderColor = `rgba(255, 255, 255, ${(答案2高亮*答題計時/10)})`; 
+                答3.style.borderColor = `rgba(255, 255, 255, ${(答案3高亮*答題計時/10)})`;  
             }
             else if(答題計時>20 && 答題計時<=100){
                 答1.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案1高亮*(20-(答題計時-20)/4)/30)})`; 
                 答2.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案2高亮*(20-(答題計時-20)/4)/30)})`; 
                 答3.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案3高亮*(20-(答題計時-20)/4)/30)})`; 
+                答1.style.borderColor = `rgba(255, 255, 255, ${(答案1高亮*(20-(答題計時-20)/4)/20)})`; 
+                答2.style.borderColor = `rgba(255, 255, 255, ${(答案2高亮*(20-(答題計時-20)/4)/20)})`; 
+                答3.style.borderColor = `rgba(255, 255, 255, ${(答案3高亮*(20-(答題計時-20)/4)/20)})`; 
             }
             答1.style.opacity = `${(100-答題計時)/100}`;
             答2.style.opacity = `${(100-答題計時*1.2)/100}`;
@@ -229,11 +255,17 @@ function 文字操控(){
                 答1.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案1高亮*答題計時/30)})`; 
                 答2.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案2高亮*答題計時/30)})`;
                 答3.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案3高亮*答題計時/30)})`;
+                答1.style.borderColor = `rgba(255, 255, 255, ${(答案1高亮*答題計時/10)})`;
+                答2.style.borderColor = `rgba(255, 255, 255, ${(答案2高亮*答題計時/10)})`; 
+                答3.style.borderColor = `rgba(255, 255, 255, ${(答案3高亮*答題計時/10)})`;  
             }
             else if(答題計時>20 && 答題計時<=100){
                 答1.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案1高亮*(20-(答題計時-20)/4)/30)})`; 
                 答2.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案2高亮*(20-(答題計時-20)/4)/30)})`; 
                 答3.style.backgroundColor = `rgba(255, 255, 255, ${0.3+(答案3高亮*(20-(答題計時-20)/4)/30)})`; 
+                答1.style.borderColor = `rgba(255, 255, 255, ${(答案1高亮*(20-(答題計時-20)/4)/20)})`; 
+                答2.style.borderColor = `rgba(255, 255, 255, ${(答案2高亮*(20-(答題計時-20)/4)/20)})`; 
+                答3.style.borderColor = `rgba(255, 255, 255, ${(答案3高亮*(20-(答題計時-20)/4)/20)})`; 
             }
 
             答1.style.opacity = `${(100-答題計時/2)/100}`;
@@ -273,8 +305,13 @@ function 文字操控(){
     else{
         if(當前步驟<5){
             if(答題計時>=101&&內文已更新==false){
+                
+                隨機化稀釋++;
+                if(隨機化稀釋 > 1){
+                    隨機化稀釋 = 0;
+                    題目隨機化();
+                }
 
-                題目隨機化();
                 題目內文.innerHTML=`${題庫[當前步驟][0]}`;
                 答1內文.innerHTML=`${題庫[當前步驟][答案順序隨機化[0]+1]}`;
                 答2內文.innerHTML=`${題庫[當前步驟][答案順序隨機化[1]+1]}`;
@@ -290,9 +327,12 @@ function 文字操控(){
             答3內文.style.opacity = `${(100-(200-答題計時)*1.8)/100}`;
             題目內文.style.opacity = `${(100-(200-答題計時)*1.2)/100}`;
         }
+
+        //生成回答
+
         else{
-        if(答題計時>=101 && 內文已更新==false){
-            //生成回答
+          if(答題計時>=101 && 內文已更新==false){
+            
             if(總分計算<=1){
                 推薦清單.innerHTML = 推薦[0];
             }
@@ -316,9 +356,17 @@ function 文字操控(){
             推薦清單.style.display = 'flex';
             內文已更新 = true;
             }
-        推薦曲目.style.opacity = `${(答題計時-100)/100}`;
-        推薦的是.style.opacity = `${(答題計時-100)/100}`;
-        推薦清單.style.opacity = `${(答題計時-100)/100}`;
+
+        
+
+
+        推薦曲目.style.opacity = `${(答題計時-600)/100}`;
+        推薦的是.style.opacity = `${(答題計時-600)/100}`;
+        推薦清單.style.opacity = `${(答題計時-600)/100}`;
+
+
+
+
         }
 
         if(當前步驟==0){
@@ -345,25 +393,12 @@ function 文字操控(){
     }
 }
 
-let alpha = 0;
-let beta = 0;
-let gamma = 0
 
-
-/*if(window.DeviceOrientationEvent)
-{
-window.addEventListener('deviceorientation', DeviceOrientationHandler, false);
-}
-function DeviceOrientationHandler(event) {
-alpha = event.alpha;
-beta = event.beta;
-gamma = event.gamma;
-}*/
 
 
 
 function 色相轉換(){
-    模糊.style = `position: absolute;height: 100vh;width: 100vw;background-color: rgba(195, 195, 195, 0);-webkit-backdrop-filter: blur(1px) hue-rotate(${(當前步驟-1)*72+72/200*答題計時}deg); backdrop-filter: blur(1px) hue-rotate(${(當前步驟-1)*72+72/200*答題計時}deg)`;
+    模糊.style = `position: absolute;height: 100vh;width: 100vw;background-color: rgba(195, 195, 195, 0);-webkit-backdrop-filter: blur(1px) hue-rotate(${(當前步驟-1)*72+72/200*向前衝計時}deg); backdrop-filter: blur(1px) hue-rotate(${(當前步驟-1)*72+72/200*向前衝計時}deg) invert(${反相})`;
 }
 
 
@@ -377,19 +412,21 @@ function loop(){
   c++;
     當前位子 += (Math.sin(前進速度弧度)*0.01+0.004)*方向;
     if(當前步驟<5){
-        if(答題計時<=100){
-            當前位子 += 答題計時/1000*方向
+        if(向前衝計時<=100){
+            //當前位子 += 向前衝計時/1000*方向
+            當前位子 += ((Math.sin(-Math.PI / 2 + Math.PI * 向前衝計時 / 100 * 方向))+1)/20;
         }
         else{
-            當前位子 += (200-答題計時)/1000*方向
+            //當前位子 += (200-向前衝計時)/1000*方向
+            當前位子 += ((Math.sin(-Math.PI / 2 + Math.PI * (200-向前衝計時) / 100 * 方向))+1)/20;
             }
         }
     else{
-        if(答題計時<=100){
-            當前位子 += 答題計時/350*方向
+        if(向前衝計時<=200){
+            當前位子 += ((Math.sin(-Math.PI / 2 + Math.PI * 向前衝計時 / 200 * 方向))+1)/5;
         }
         else{
-            當前位子 += (200-答題計時)/350*方向
+            當前位子 += ((Math.sin(-Math.PI / 2 + Math.PI * (400-向前衝計時) / 200 * 方向))+1)/5;
         }
     }
   
@@ -406,11 +443,54 @@ function loop(){
   畫音符();
 
   if(答題計時>0){
-    答題計時+=1.9;
+    答題計時+=3.1;
     文字操控();
+
+    if(當前步驟<5){
+        if(答題計時>200){
+            答題計時=0;
+        }
+    }
+    else{
+        if(答題計時>700){
+            答題計時=0;
+        }
+    }
+  }
+
+  if(向前衝計時>0){
+    向前衝計時+=1.3;
     色相轉換();
-    if(答題計時>200){
-        答題計時=0;
+
+
+    if(當前步驟<5){
+        if(向前衝計時>200){
+            向前衝計時=0;
+        }
+    }
+    else{
+        if(向前衝計時>400){
+            向前衝計時=0;
+        }
+
+        if(答題計時>100&&答題計時<=300){
+            變白.style.display='flex'
+            變白.style.opacity=`${(答題計時-100)/200}`
+        }
+        if(答題計時>300&&答題計時<=450){
+            變白.style.backgroundColor=`rgba(255, 255, 255,${(答題計時-300)/150}`
+        }
+        if(答題計時>500){
+            反相 = (答題計時-500)/200;
+        }
+        if(答題計時>450&&答題計時<=600){
+            變白.style.backgroundColor=`rgba(255, 255, 255,${1-(答題計時-450)/150}`
+        }
+        if(答題計時>600){
+            變白.style.backgroundColor=`rgba(255, 255, 255,0}`
+            變白.style.opacity=`${1-(答題計時-600)/100}`
+        }
+
     }
   }
   
