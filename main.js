@@ -109,6 +109,69 @@ let 點4 = document.getElementById('點4');
 let 點5 = document.getElementById('點5');
 let 變白 = document.getElementById('變白');
 
+let 社團標誌 = document.getElementById('社團標誌');
+社團標誌.addEventListener('click',球滾出來);
+let fb = document.getElementById('fb');
+let ig = document.getElementById('ig');
+
+
+let 球位子 = 0;
+
+function 球滾出來(){
+
+  if(球位子==0){
+     球位子 = 1;
+     社團標誌.removeEventListener('click',球滾出來);
+
+     fb.addEventListener("animationend",function 消失fb1(e){
+        fb.removeEventListener("animationend",消失fb1);
+    },false);
+    
+    ig.addEventListener("animationend",function 消失ig1(e){
+        ig.removeEventListener("animationend",消失ig1);
+        社團標誌.addEventListener('click',球滾出來);
+    },false);
+
+
+
+     fb.style.display='flex';
+     
+     fb.style.animation= "fb往左 1s 1 forwards";
+     
+     ig.style.display='flex';
+
+     ig.style.animation= "ig往左 1.3s 1 forwards";
+    }
+  else{
+
+    球位子 = 0;
+
+    社團標誌.removeEventListener('click',球滾出來);
+
+    fb.addEventListener("animationend",function 消失fb(e){
+        fb.style.display= 'none';
+        fb.removeEventListener("animationend",消失fb);
+    },false);
+    
+    ig.addEventListener("animationend",function 消失ig(e){
+        ig.style.display= 'none';
+        ig.removeEventListener("animationend",消失ig);
+        社團標誌.addEventListener('click',球滾出來);
+    },false);
+
+    fb.style.display='flex';
+
+    ig.style.display='flex';
+
+    fb.style.animation= "fb往右 2.2s 1 forwards";
+
+    ig.style.animation= "ig往右 2.6s 1 forwards";
+
+   }
+  
+}
+
+
 
 //視窗大小變動偵測
 
