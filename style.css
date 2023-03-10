@@ -434,9 +434,9 @@ body {
     z-index: 1;
     -webkit-filter: invert(1) drop-shadow(7px 7px 15px rgba(255, 255, 255, 0.4)) drop-shadow(0px 0px 5px rgba(192, 65, 126, 0.6));
     filter: invert(1) drop-shadow(7px 7px 15px rgba(255, 255, 255, 0.4)) drop-shadow(0px 0px 5px rgba(187, 61, 124, 0.6));
-    right:16px;
-    bottom: 16px;
-    transform: scale(0.6);
+    right:28px;
+    bottom: 28px;
+    transform: scale(1);
     animation: 標誌 10s infinite;
     cursor: pointer;
   }
@@ -577,52 +577,52 @@ body {
 
   @keyframes 標誌 {
     from {
-      transform: rotate(0deg) scale(0.5);
+      transform: rotate(0deg) scale(1);
     }
   
     8% {
-      transform: rotate(50deg) scale(0.6);
+      transform: rotate(50deg) scale(1.2);
    }
     14.2% {
-     transform: rotate(-15deg) scale(0.4);
+     transform: rotate(-15deg) scale(0.8);
     }
     16% {
-      transform: rotate(17deg) scale(0.56);
+      transform: rotate(17deg) scale(1.12);
     }
     18% {
-      transform: rotate(-12deg) scale(0.46);
+      transform: rotate(-12deg) scale(0.92);
     }
     19% {
-      transform: rotate(7deg) scale(0.53);
+      transform: rotate(7deg) scale(1.06);
     }
     19.5% {
-      transform: rotate(-4deg) scale(0.48);
+      transform: rotate(-4deg) scale(0.96);
     }
     19.8% {
-      transform: rotate(2deg) scale(0.51);
+      transform: rotate(2deg) scale(1.01);
     }
     20% {
-      transform: rotate(0deg) scale(0.47);
+      transform: rotate(0deg) scale(0.98);
     }
     to {
-      transform: scale(0.5);
+      transform: scale(1);
     }
   }
 
   @keyframes 標誌2 {
     from {
-      transform: rotate(0deg) scale(0.5);
+      transform: rotate(0deg) scale(1);
     }
 
     20% {
-      transform: rotate(0deg) scale(0.5);
+      transform: rotate(0deg) scale(1);
     }
     30% {
-      transform: rotate(-70deg) scale(0.45);
+      transform: rotate(-70deg) scale(0.9);
     }
   
   
     to {
-      transform: rotate(1440deg)  scale(0.5);
+      transform: rotate(1440deg)  scale(1);
     }
   }
