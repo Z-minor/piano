@@ -12,6 +12,22 @@
   
   }
 
+
+.斑馬 .line {
+stroke-dasharray: 300;
+stroke-linejoin: round;
+stroke-linecap: round;
+/*animation: rotate 4s infinite linear;   
+}
+@keyframes rotate {
+0% {
+stroke-dashoffset: 0;
+}
+100% {
+stroke-dashoffset: 2000;
+}*/
+}
+
 body {
   
     position:static;
@@ -94,11 +110,11 @@ body {
     display: none;
     border-style: solid;
     border-width: 1px;
-    border-color: white;
+    border-color: rgb(0, 0, 0);
     background-color: rgba(255, 255, 255, 0.104);
     border-radius: 10px 70px 10px 0px;
     backdrop-filter: blur(2px) brightness(105%);
-    -webkit-backdrop-filter: blur(2px) brightness(105%);
+    -webkit-backdrop-filter: blur(2px) brightness(95%);
     opacity: 0;
     color: rgb(255, 255, 255);
 
@@ -133,15 +149,25 @@ body {
     width: 70vw;
     max-width: 500px;
     transform: translate(-50%,0%);
-    background-color: rgba(255, 255, 255, 0.1);
+
+
+    background-color: rgb(0, 0, 0);
+    
+
+
+
+
+
     border-radius: 10px 10px 10px 10px;;
     font-size: 25px;
     display: none;
-    opacity: 0;
+    opacity: 1;
     font-family: 'Righteous', cursive;
     color: rgb(255, 255, 255);
     align-items: center;
     padding: 15px;
+
+    
 
   }
 
@@ -154,16 +180,90 @@ body {
     width: 70vw;
     max-width: 500px;
     transform: translate(-50%,0%);
-    background-color: rgba(255, 255, 255, 0.1);
+
+
+    background-color: rgb(0, 0, 0);
+    
+
+
     border-radius: 10px 10px 10px 10px;;
     font-size: 25px;
     display: none;
-    opacity: 0;
+    opacity: 1;
     font-family: 'Righteous', cursive;
     color: rgb(255, 255, 255);
     align-items: center; 
     padding: 15px;
+
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
   }
+
+  @keyframes shine {
+    100%{background-position: -50%;}
+  }
+
+  .清單::before{
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    height: calc(12vh - 28px);
+    width: calc(70vw - 28px);
+    max-width: 472px;
+    background-color: rgb(17, 17, 33);
+
+    border-radius: 10px 10px 10px 10px;;
+    font-size: 25px;
+    display: flex;
+    opacity: 1;
+    font-family: 'Righteous', cursive;
+    color: rgb(255, 255, 255);
+    align-items: center; 
+    padding: 15px;
+    z-index:-1;
+}
+
+.清單::after{
+  content: "";
+  position: absolute;
+  left: 0px;
+  height: calc(12vh - 30px);
+  width: calc(70vw - 30px);
+  max-width: 470px;
+
+
+  background: linear-gradient(90deg, rgba(255, 128, 0, 0.7) 5%, rgb(140, 255, 58) 45%,rgba(140, 255, 58) 55%, rgba(255, 128, 0, 0.7) 95%);
+  background-color: rgb(0, 0, 0);
+  transition-timing-function: linear;
+  background-size: 200% auto;
+  animation: shine 5s infinite;
+  background-position: 150%;
+
+
+  border-radius: 10px 10px 10px 10px;;
+  font-size: 25px;
+  display: flex;
+  opacity: 1;
+  font-family: 'Righteous', cursive;
+  color: rgb(255, 255, 255);
+  align-items: center; 
+  padding: 15px;
+  z-index: -2;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+
+
+}
+
+#推薦清單2::after{
+  background:linear-gradient(90deg, rgba(89, 0, 255, 0.7) 5%, rgb(58, 245, 255) 45%,rgba(58, 245, 255) 55%, rgba(89, 0, 255, 0.7) 95%);
+  transition-timing-function: linear;
+    background-size: 200% auto;
+    animation: shine 6s infinite;
+    background-position: 150%;
+}
+  
 
   #題目 {
     position: absolute;
@@ -274,3 +374,44 @@ body {
     border-radius: 50%;
   }
 
+  .三角{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0 10px 17.3px;
+    border-color: transparent transparent transparent #000000;
+    filter: drop-shadow(0.5px 0.5px 30px #6a5000);
+    filter: drop-shadow(0.5px 0.5px 10px #b99402);
+    filter: drop-shadow(0.5px 0.5px 3px #deaa00);
+    animation: 旋轉 5s infinite;
+  }
+
+  .三角2{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0 10px 17.3px;
+    border-color: transparent transparent transparent #000000;
+    filter: drop-shadow(0.5px 0.5px 30px #006a63);
+    filter: drop-shadow(0.5px 0.5px 10px #02b6b9);
+    filter: drop-shadow(0.5px 0.5px 3px #00dec8);
+    animation: 旋轉 4s infinite;
+    animation-delay:2s;
+    -webkit-animation-delay:2s;
+  }
+
+  @keyframes 旋轉 {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(720deg);
+   }
+  }

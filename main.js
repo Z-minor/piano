@@ -164,7 +164,7 @@ document.getElementById('方群').innerHTML = 方形html;*/
 //初始化音符
 let 音符html ='';
 for(let i = 0;i<音符數量 ; i++){
-    音符html+=`<path id="b${i}" d="M 0 58 C 0 74, 6 78, 18 78, 31 78, 36 75, 36 59, 36 51, 36 35, 36 29, 36 37, 59 34, 59 40, 59 11, 42 19, 32 1, 32 5, 32 8, 32 45, 31 40, 25 40, 18 40, 7 40, 0 43, 0 58 " stroke="rgb(255,255,255)" stroke-width="0" stroke-linejoin="round" fill="transparent" stroke-opacity="0.3"/>`
+    音符html+=`<path id="b${i}" class="line" d="M 0 58 C 0 74, 6 78, 18 78, 31 78, 36 75, 36 59, 36 51, 36 35, 36 29, 36 37, 59 34, 59 40, 59 11, 42 19, 32 1, 32 5, 32 8, 32 45, 31 40, 25 40, 18 40, 7 40, 0 43, 0 58 " stroke="rgb(255,255,255)" stroke-width="0" stroke-linejoin="round" fill="transparent" stroke-opacity="0.3"/>`
 }
 document.getElementById('音群').innerHTML = 音符html;
 
@@ -362,7 +362,7 @@ function 文字操控(){
             if(總分計算<=1){
 
                 推薦1序號 = Math.floor(Math.random()*推薦[0].length);
-                推薦清單1.innerHTML = 推薦[0][推薦1序號];
+                推薦清單1.innerHTML = 推薦[0][推薦1序號]+'<div class="三角"></div>';
                 連結1 = `${連結群[0][推薦1序號]}`
                 
                 while(1){
@@ -370,7 +370,7 @@ function 文字操控(){
                     if(推薦2序號 == 推薦1序號){
                         continue;
                     }
-                    推薦清單2.innerHTML = 推薦[0][推薦2序號];
+                    推薦清單2.innerHTML = 推薦[0][推薦2序號]+'<div class="三角2"></div>';
                     連結2 = `${連結群[0][推薦2序號]}`
                     break;
                 }
@@ -379,7 +379,7 @@ function 文字操控(){
             }
             else if(總分計算<=3){
                 推薦1序號 = Math.floor(Math.random()*推薦[1].length);
-                推薦清單1.innerHTML = 推薦[1][推薦1序號];
+                推薦清單1.innerHTML = 推薦[1][推薦1序號]+'<div class="三角"></div>';
                 連結1 = `${連結群[1][推薦1序號]}`
                 
                 
@@ -388,14 +388,14 @@ function 文字操控(){
                     if(推薦2序號 == 推薦1序號){
                         continue;
                     }
-                    推薦清單2.innerHTML = 推薦[1][推薦2序號];
+                    推薦清單2.innerHTML = 推薦[1][推薦2序號]+'<div class="三角2"></div>';
                     連結2 = `${連結群[1][推薦2序號]}`
                     break;
                 }
             }
             else if(總分計算<=5){
                 推薦1序號 = Math.floor(Math.random()*推薦[2].length);
-                推薦清單1.innerHTML = 推薦[2][推薦1序號];
+                推薦清單1.innerHTML = 推薦[2][推薦1序號]+'<div class="三角"></div>';
                 連結1 = `${連結群[2][推薦1序號]}`
                 
                 
@@ -404,14 +404,14 @@ function 文字操控(){
                     if(推薦2序號 == 推薦1序號){
                         continue;
                     }
-                    推薦清單2.innerHTML = 推薦[2][推薦2序號];
+                    推薦清單2.innerHTML = 推薦[2][推薦2序號]+'<div class="三角2"></div>';
                     連結2 = `${連結群[2][推薦2序號]}`
                     break;
                 }
             }
             else if(總分計算<=7){
                 推薦1序號 = Math.floor(Math.random()*推薦[3].length);
-                推薦清單1.innerHTML = 推薦[3][推薦1序號];
+                推薦清單1.innerHTML = 推薦[3][推薦1序號]+'<div class="三角"></div>';
                 連結1 = `${連結群[3][推薦1序號]}`
                 
                 
@@ -420,14 +420,14 @@ function 文字操控(){
                     if(推薦2序號 == 推薦1序號){
                         continue;
                     }
-                    推薦清單2.innerHTML = 推薦[3][推薦2序號];
+                    推薦清單2.innerHTML = 推薦[3][推薦2序號]+'<div class="三角2"></div>';
                     連結2 = `${連結群[3][推薦2序號]}`
                     break;
                 }
             }
             else if(總分計算<=9){
                 推薦1序號 = Math.floor(Math.random()*推薦[4].length);
-                推薦清單1.innerHTML = 推薦[4][推薦1序號];
+                推薦清單1.innerHTML = 推薦[4][推薦1序號]+'<div class="三角"></div>';
                 連結1 = `${連結群[4][推薦1序號]}`
                 
                 
@@ -436,14 +436,14 @@ function 文字操控(){
                     if(推薦2序號 == 推薦1序號){
                         continue;
                     }
-                    推薦清單2.innerHTML = 推薦[4][推薦2序號];
+                    推薦清單2.innerHTML = 推薦[4][推薦2序號]+'<div class="三角2"></div>';
                     連結2 = `${連結群[4][推薦2序號]}`
                     break;
                 }
             }
             else{
                 推薦1序號 = Math.floor(Math.random()*推薦[5].length);
-                推薦清單1.innerHTML = 推薦[5][推薦1序號];
+                推薦清單1.innerHTML = 推薦[5][推薦1序號]+'<div class="三角"></div>';
                 連結1 = `${連結群[5][推薦1序號]}`
                 
                 
@@ -452,7 +452,7 @@ function 文字操控(){
                     if(推薦2序號 == 推薦1序號){
                         continue;
                     }
-                    推薦清單2.innerHTML = 推薦[5][推薦2序號];
+                    推薦清單2.innerHTML = 推薦[5][推薦2序號]+'<div class="三角2"></div>';
                     連結2 = `${連結群[5][推薦2序號]}`
                     break;
                 }
@@ -614,6 +614,7 @@ function loop(){
             變白.style.backgroundColor=`rgba(255, 255, 255,${1-(答題計時-450)/150}`
         }
         if(答題計時>600){
+            document.getElementById('音群').setAttribute("class","斑馬");
             變白.style.backgroundColor=`rgba(255, 255, 255,0}`
             變白.style.opacity=`${1-(答題計時-600)/100}`
         }
