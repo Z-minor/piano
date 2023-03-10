@@ -675,7 +675,7 @@ function loop(){
             document.getElementById('容器2').style.display = "flex"
         }
         if(答題計時>1000){
-            document.getElementById('社團標誌').style = `position: fixed;z-index: 1; -webkit-filter: drop-shadow(7px 7px 15px rgba(123, 127, 255, 0.4)) drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.4)) invert(0);filter: drop-shadow(7px 7px 15px rgba(123, 127, 255, 0.4)) drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.4)) invert(0);right:30px;bottom: 30px;transform: scale(0.6);animation: 標誌 8s infinite;`
+            document.getElementById('社團標誌').style = `position: fixed;z-index: 1; -webkit-filter: drop-shadow(7px 7px 15px rgba(123, 127, 255, 0.4)) drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.4)) invert(0);filter: drop-shadow(7px 7px 15px rgba(123, 127, 255, 0.4)) drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.4)) invert(0);right:32px;bottom: 32px;transform: scale(0.6);animation: 標誌 8s infinite;`
             答題計時=0;
             添加超連結();
         }
@@ -697,7 +697,7 @@ function loop(){
             向前衝計時=0;
         }
         if(答題計時<=100&&答題計時>0){
-            document.getElementById('社團標誌').style = `position: fixed;z-index: 1; -webkit-filter: drop-shadow(7px 7px 15px rgba(123, 127, 255, 0.4)) drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.4)) invert(${1-(答題計時)/100});filter: drop-shadow(7px 7px 15px rgba(123, 127, 255, 0.4)) drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.4)) invert(${1-(答題計時)/100});right:30px;bottom: 30px;transform: scale(0.6);animation: 標誌2 5.5s infinite;`
+            document.getElementById('社團標誌').style = `position: fixed;z-index: 1; -webkit-filter: drop-shadow(7px 7px 15px rgba(123, 127, 255, 0.4)) drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.4)) invert(${1-(答題計時)/100});filter: drop-shadow(7px 7px 15px rgba(123, 127, 255, 0.4)) drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.4)) invert(${1-(答題計時)/100});right:32px;bottom: 32px;transform: scale(0.6);animation: 標誌2 5.5s infinite;`
             鋼琴透明度 = 0.25-答題計時/100/4;
         }
         if(答題計時>100&&答題計時<=300){
