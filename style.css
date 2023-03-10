@@ -70,23 +70,6 @@ body {
     background: linear-gradient(rgb(171, 213, 214),rgb(224, 197, 173));
   }
 
-  #容器2 {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    left: 50%;
-    top: 7vh;
-    height: 86vh;
-    width: calc(70vw + 6vh);
-    max-width: calc(500px + 6vh);
-    transform: translate(-50%,0%);
-  }
-
-  #琴{
-    backdrop-filter: blur(1px) hue-rotate(-30deg);
-    -webkit-backdrop-filter: blur(1px) hue-rotate(-30deg);
-  }
-
   #背景 {
     position: absolute;
     left: 50%;
@@ -101,8 +84,8 @@ body {
     border-color: white;
     background-color: rgba(255, 255, 255, 0.104);
     border-radius: 10px 70px 10px 0px;
-    backdrop-filter: blur(2px) brightness(105%) hue-rotate(-30deg);;
-    -webkit-backdrop-filter: blur(2px) brightness(105%) hue-rotate(-30deg);;
+    backdrop-filter: blur(2px) brightness(105%);
+    -webkit-backdrop-filter: blur(2px) brightness(105%);
 
   }
 
@@ -425,16 +408,6 @@ body {
     -webkit-animation-delay:2s;
   }
 
-  #社團標誌{
-    position: absolute;
-    z-index: 1;
-    -webkit-filter: invert(1) drop-shadow(7px 7px 15px rgba(255, 255, 255, 0.4)) drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.6));
-    filter: invert(1) drop-shadow(7px 7px 15px rgba(255, 255, 255, 0.4)) drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.6));
-    right:16px;
-    bottom: 16px;
-    transform: scale(0.6);
-    animation: 標誌 10s infinite;
-  }
 
   @keyframes 旋轉 {
     from {
@@ -444,38 +417,4 @@ body {
     to {
       transform: rotate(720deg);
    }
-  }
-
-  @keyframes 標誌 {
-    from {
-      transform: rotate(0deg) scale(0.5);
-    }
-  
-    8% {
-      transform: rotate(50deg) scale(0.6);
-   }
-    14.2% {
-     transform: rotate(-15deg) scale(0.4);
-    }
-    16% {
-      transform: rotate(17deg) scale(0.56);
-    }
-    18% {
-      transform: rotate(-12deg) scale(0.46);
-    }
-    19% {
-      transform: rotate(7deg) scale(0.53);
-    }
-    19.5% {
-      transform: rotate(-4deg) scale(0.48);
-    }
-    19.8% {
-      transform: rotate(2deg) scale(0.51);
-    }
-    20% {
-      transform: rotate(0deg) scale(0.47);
-    }
-    to {
-      transform: scale(0.5);
-    }
   }
