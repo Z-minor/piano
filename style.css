@@ -110,7 +110,8 @@ body {
 
   #模糊 {
     position: absolute;
-    height: 100vh;
+    top: -10vh;
+    height: 120vh;
     width: 100vw;
     background-color: rgba(195, 195, 195, 0);
     backdrop-filter: blur(1px) hue-rotate(0deg);
