@@ -15,6 +15,7 @@ let 推薦1序號 = 0;
 let 推薦2序號 = 0;
 let 連結1 = "";
 let 連結2 = "";
+let 鋼琴透明度 = 0.25;
 let 題庫 = [['沒想到（或就如你所知道）上帝真的存在，且你剛好有機會見面祂。<br><br>祂長什麼樣子？','電腦或機械','黑色小貓咪','老人'],
 ['想像你覺得你會覺得最幸福的一個場面。周圍有幾個人在？','沒有人','1個人','100多個人'],
 ['離開家鄉將近十年，好不容易回到老家，你意外發現家裡長滿了植物。<br><br>植物狀態如何?','枯死了','開花了','攀爬在所有牆壁上，長得很茂盛'],
@@ -84,16 +85,8 @@ let y起點 = 0;
 let 音符縮放 = 0;
 let 前進速度弧度 =0;
 
-window.onresize = function() {
-    高 = window.innerHeight;
-    寬 = window.innerWidth;
-    投影螢幕長寬 = (高 > 寬) ? 高 : 寬;
-    投影螢幕半徑 = 投影螢幕長寬 / 2;
-    x中心 = 寬/2;
-    y中心 = 高/2;
-    軸心旋轉半徑 = 投影螢幕長寬/8;
-    音符放大比例 = 投影螢幕長寬*起始位子/80
-}
+
+
 
 let 答1 = document.getElementById('答1');
 let 答1內文 = document.getElementById('答1內文');
@@ -117,7 +110,24 @@ let 點5 = document.getElementById('點5');
 let 變白 = document.getElementById('變白');
 
 
+//視窗大小變動偵測
 
+window.onresize = function() {
+    高 = window.innerHeight;
+    寬 = window.innerWidth;
+    投影螢幕長寬 = (高 > 寬) ? 高 : 寬;
+    投影螢幕半徑 = 投影螢幕長寬 / 2;
+    x中心 = 寬/2;
+    y中心 = 高/2;
+    軸心旋轉半徑 = 投影螢幕長寬/8;
+    音符放大比例 = 投影螢幕長寬*起始位子/80
+    //變白.style.height= `${高}px`;
+    //變白.style.width= `${寬}px`;
+    //模糊.style.height= `${高}px`;
+    //模糊.style.width= `${寬}px`;
+    
+    畫鋼琴();
+}
 
 function 按下答案1(){
     按下答案(1);
@@ -167,6 +177,20 @@ for(let i = 0;i<音符數量 ; i++){
     音符html+=`<path id="b${i}" class="line" d="M 0 58 C 0 74, 6 78, 18 78, 31 78, 36 75, 36 59, 36 51, 36 35, 36 29, 36 37, 59 34, 59 40, 59 11, 42 19, 32 1, 32 5, 32 8, 32 45, 31 40, 25 40, 18 40, 7 40, 0 43, 0 58 " stroke="rgb(255,255,255)" stroke-width="0" stroke-linejoin="round" fill="transparent" stroke-opacity="0.3"/>`
 }
 document.getElementById('音群').innerHTML = 音符html;
+
+function 畫鋼琴(){
+    let 鋼琴放大比例y = 高 * 0.86 / 65;
+    let 鋼琴放大比例x = (高 * 0.06 + 寬 * 0.7)/44;
+    if(鋼琴放大比例x * 44 > (500 + 0.06*高)){
+        鋼琴放大比例x = (500 + 0.06*高)/44;
+    }
+    
+    
+    //document.getElementById('鋼琴').innerHTML = `<path id="琴" class="line" d="M 0 ${17*鋼琴放大比例y} L 0 ${65*鋼琴放大比例y} L ${44*鋼琴放大比例x} ${65*鋼琴放大比例y} L ${44*鋼琴放大比例x} ${49*鋼琴放大比例y} C ${44*鋼琴放大比例x} ${40*鋼琴放大比例y} ${40*鋼琴放大比例x} ${36*鋼琴放大比例y} ${30*鋼琴放大比例x} ${32*鋼琴放大比例y} C ${27*鋼琴放大比例x} ${31*鋼琴放大比例y} ${24*鋼琴放大比例x} ${29*鋼琴放大比例y} ${23*鋼琴放大比例x} ${26*鋼琴放大比例y} C ${20*鋼琴放大比例x} ${12*鋼琴放大比例y} ${4*鋼琴放大比例x} ${3*鋼琴放大比例y} 0 ${15*鋼琴放大比例y}" stroke="rgb(0,0,0)" stroke-width="0" stroke-linejoin="round" fill="white" fill-opacity="${鋼琴透明度}" stroke-opacity="0.3"/>`;
+
+    document.getElementById('鋼琴').innerHTML = `<path id="琴" class="line" d="M 0 0 L 0 ${65*鋼琴放大比例y} L ${44*鋼琴放大比例x} ${65*鋼琴放大比例y} C ${44*鋼琴放大比例x} ${30*鋼琴放大比例y} ${44*鋼琴放大比例x} ${18*鋼琴放大比例y} ${27*鋼琴放大比例x} ${18*鋼琴放大比例y} C ${11*鋼琴放大比例x} ${18*鋼琴放大比例y} ${17*鋼琴放大比例x} 0 0 0 " stroke="rgb(0,0,0)" stroke-width="0" stroke-linejoin="round" fill="white" fill-opacity="${鋼琴透明度}" stroke-opacity="0.3"/>`;
+    
+}
 
 
 //for(let k = Math.floor(當前步驟)-1 ;k<音符數量;k++){
@@ -506,7 +530,7 @@ function 文字操控(){
 
 
 function 色相轉換(){
-    模糊.style = `position: absolute;height: 100vh;width: 100vw;background-color: rgba(195, 195, 195, 0);-webkit-backdrop-filter: blur(1px) hue-rotate(${(當前步驟-1)*72+72/200*向前衝計時}deg) invert(${反相}); backdrop-filter: blur(1px) hue-rotate(${(當前步驟-1)*72+72/200*向前衝計時}deg) invert(${反相})`;
+    模糊.style = `position: absolute;height: ${高}px;width: ${寬}px;background-color: rgba(195, 195, 195, 0);-webkit-backdrop-filter: blur(1px) hue-rotate(${(當前步驟-1)*72+72/200*向前衝計時}deg) invert(${反相}); backdrop-filter: blur(1px) hue-rotate(${(當前步驟-1)*72+72/200*向前衝計時}deg) invert(${反相})`;
 }
 
 function 測 (){
@@ -529,12 +553,21 @@ function 前往連結2(){
 }
 
 
+//document.getElementById('社團標誌').addEventListener('click',前往連結3);
+
+
+function 前往連結3(){
+    window.open("https://www.facebook.com/NTUpiano/?locale=zh_TW");
+}
+
+
 
 function loop(){
   if(c==0){
     //題目隨機化();
     答題計時=100;
   }
+
   c++;
     當前位子 += (Math.sin(前進速度弧度)*0.01+0.004)*方向;
     if(當前步驟<5){
@@ -562,11 +595,14 @@ function loop(){
   if(當前位子<0){
     方向 = 1;  
   }
+
+
   當前弧度+=(Math.PI / 180 / 5);
   前進速度弧度+=(Math.PI / 180 / 2.3);
   三角函數求偏移();
   //畫方();
   畫音符();
+  畫鋼琴();
 
   if(答題計時>0){
     答題計時+=3.1;
@@ -578,7 +614,11 @@ function loop(){
         }
     }
     else{
-        if(答題計時>700){
+        if(答題計時>600){
+            document.getElementById('容器2').style.display = "flex"
+        }
+        if(答題計時>1000){
+            document.getElementById('社團標誌').style = `position: absolute;z-index: 1; -webkit-filter: drop-shadow(7px 7px 15px rgba(123, 127, 255, 0.4)) drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.4)) invert(0);filter: drop-shadow(7px 7px 15px rgba(123, 127, 255, 0.4)) drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.4)) invert(0);right:16px;bottom: 16px;transform: scale(0.6);animation: 標誌 8s infinite;`
             答題計時=0;
             添加超連結();
         }
@@ -599,7 +639,10 @@ function loop(){
         if(向前衝計時>400){
             向前衝計時=0;
         }
-
+        if(答題計時<=100&&答題計時>0){
+            document.getElementById('社團標誌').style = `position: absolute;z-index: 1; -webkit-filter: drop-shadow(7px 7px 15px rgba(123, 127, 255, 0.4)) drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.4)) invert(${1-(答題計時)/100});filter: drop-shadow(7px 7px 15px rgba(123, 127, 255, 0.4)) drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.4)) invert(${1-(答題計時)/100});right:16px;bottom: 16px;transform: scale(0.6);animation: 標誌2 5.5s infinite;`
+            鋼琴透明度 = 0.25-答題計時/100/4;
+        }
         if(答題計時>100&&答題計時<=300){
             變白.style.display='flex'
             變白.style.opacity=`${(答題計時-100)/200}`
@@ -614,9 +657,11 @@ function loop(){
             變白.style.backgroundColor=`rgba(255, 255, 255,${1-(答題計時-450)/150}`
         }
         if(答題計時>600){
+            
             document.getElementById('音群').setAttribute("class","斑馬");
             變白.style.backgroundColor=`rgba(255, 255, 255,0}`
             變白.style.opacity=`${1-(答題計時-600)/100}`
+            鋼琴透明度 = (答題計時-600)/100/8;
         }
 
     }
@@ -627,3 +672,4 @@ function loop(){
 }
 
 loop();
+

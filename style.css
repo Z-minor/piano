@@ -38,7 +38,9 @@ body {
     font-family: "cwTeXYen", sans-serif;
     /*font-family: 'Noto Sans TC', sans-serif;*/
     color:rgb(33, 33, 33);
-  
+    display: flex;
+    justify-content: center;
+    align-items:center;
   }
 
   #變白 {
@@ -70,6 +72,15 @@ body {
     background: linear-gradient(rgb(171, 213, 214),rgb(224, 197, 173));
   }
 
+  #容器2 {
+  
+  }
+
+  #琴{
+    backdrop-filter: blur(1px) hue-rotate(-30deg);
+    -webkit-backdrop-filter: blur(1px) hue-rotate(-30deg);
+  }
+
   #背景 {
     position: absolute;
     left: 50%;
@@ -84,8 +95,8 @@ body {
     border-color: white;
     background-color: rgba(255, 255, 255, 0.104);
     border-radius: 10px 70px 10px 0px;
-    backdrop-filter: blur(2px) brightness(105%);
-    -webkit-backdrop-filter: blur(2px) brightness(105%);
+    backdrop-filter: blur(2px) brightness(105%) hue-rotate(-30deg);;
+    -webkit-backdrop-filter: blur(2px) brightness(105%) hue-rotate(-30deg);;
 
   }
 
@@ -145,7 +156,7 @@ body {
     position: absolute;
     left: 50%;
     top: 37vh;
-    height: 12vh;
+    height: 15vh;
     width: 70vw;
     max-width: 500px;
     transform: translate(-50%,0%);
@@ -177,7 +188,7 @@ body {
     position: absolute;
     left: 50%;
     top: 60vh;
-    height: 12vh;
+    height: 15vh;
     width: 70vw;
     max-width: 500px;
     transform: translate(-50%,0%);
@@ -210,7 +221,7 @@ body {
     position: absolute;
     left: -1px;
     top: -1px;
-    height: calc(12vh - 28px);
+    height: calc(15vh - 28px);
     width: calc(70vw - 28px);
     max-width: 472px;
     background-color: rgb(17, 17, 33);
@@ -230,7 +241,7 @@ body {
   content: "";
   position: absolute;
   left: 0px;
-  height: calc(12vh - 30px);
+  height: calc(15vh - 30px);
   width: calc(70vw - 30px);
   max-width: 470px;
 
@@ -407,14 +418,111 @@ body {
     animation-delay:2s;
     -webkit-animation-delay:2s;
   }
+ 
 
+  #社團標誌{
+    position: absolute;
+    z-index: 1;
+    -webkit-filter: invert(1) drop-shadow(7px 7px 15px rgba(255, 255, 255, 0.4)) drop-shadow(0px 0px 5px rgba(192, 65, 126, 0.6));
+    filter: invert(1) drop-shadow(7px 7px 15px rgba(255, 255, 255, 0.4)) drop-shadow(0px 0px 5px rgba(187, 61, 124, 0.6));
+    right:16px;
+    bottom: 16px;
+    transform: scale(0.6);
+    animation: 標誌 10s infinite;
+  }
 
   @keyframes 旋轉 {
     from {
       transform: rotate(0deg);
     }
-  
+
     to {
       transform: rotate(720deg);
    }
   }
+
+  @keyframes 標誌 {
+    from {
+      transform: rotate(0deg) scale(0.5);
+    }
+  
+    8% {
+      transform: rotate(50deg) scale(0.6);
+   }
+    14.2% {
+     transform: rotate(-15deg) scale(0.4);
+    }
+    16% {
+      transform: rotate(17deg) scale(0.56);
+    }
+    18% {
+      transform: rotate(-12deg) scale(0.46);
+    }
+    19% {
+      transform: rotate(7deg) scale(0.53);
+    }
+    19.5% {
+      transform: rotate(-4deg) scale(0.48);
+    }
+    19.8% {
+      transform: rotate(2deg) scale(0.51);
+    }
+    20% {
+      transform: rotate(0deg) scale(0.47);
+    }
+    to {
+      transform: scale(0.5);
+    }
+  }
+
+  @keyframes 標誌2 {
+    from {
+      transform: rotate(0deg) scale(0.5);
+    }
+
+    20% {
+      transform: rotate(0deg) scale(0.5);
+    }
+    30% {
+      transform: rotate(-70deg) scale(0.45);
+    }
+  
+  
+    to {
+      transform: rotate(1440deg)  scale(0.5);
+    }
+  }
+
+  /*@keyframes 標誌2 {
+    from {
+      transform: rotate(0deg) scale(0.5);
+    }
+  
+    12% {
+      transform: rotate(50deg) scale(0.6);
+   }
+    21% {
+     transform: rotate(-15deg) scale(0.4);
+    }
+    24% {
+      transform: rotate(17deg) scale(0.56);
+    }
+    27% {
+      transform: rotate(-12deg) scale(0.46);
+    }
+    29% {
+      transform: rotate(7deg) scale(0.53);
+    }
+    30% {
+      transform: rotate(-4deg) scale(0.48);
+    }
+    31% {
+      transform: rotate(2deg) scale(0.51);
+    }
+    32% {
+      transform: rotate(0deg) scale(0.47);
+    }
+    to {
+      transform: scale(0.5);
+    }
+  }*/
