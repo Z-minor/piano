@@ -593,7 +593,7 @@ function 文字操控(){
 
 
 function 色相轉換(){
-    模糊.style = `position: absolute; top: 0vh; height: ${高*1.2}px;width: ${寬}px;background-color: rgba(195, 195, 195, 0);-webkit-backdrop-filter: blur(1px) hue-rotate(${(當前步驟-1)*72+72/200*向前衝計時}deg) invert(${反相}); backdrop-filter: blur(1px) hue-rotate(${(當前步驟-1)*72+72/200*向前衝計時}deg) invert(${反相})`;
+    模糊.style = `position: absolute; top: 0vh; height: ${高*1.15}px;width: ${寬}px;background-color: rgba(195, 195, 195, 0);-webkit-backdrop-filter: blur(1px) hue-rotate(${(當前步驟-1)*72+72/200*向前衝計時}deg) invert(${反相}); backdrop-filter: blur(1px) hue-rotate(${(當前步驟-1)*72+72/200*向前衝計時}deg) invert(${反相})`;
 }
 
 function 測 (){
