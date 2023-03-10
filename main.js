@@ -553,12 +553,6 @@ function 前往連結2(){
 }
 
 
-//document.getElementById('社團標誌').addEventListener('click',前往連結3);
-
-
-function 前往連結3(){
-    window.open("https://www.facebook.com/NTUpiano/?locale=zh_TW");
-}
 
 
 
@@ -672,4 +666,3 @@ function loop(){
 }
 
 loop();
-

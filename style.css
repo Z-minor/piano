@@ -493,36 +493,3 @@ body {
     }
   }
 
-  /*@keyframes 標誌2 {
-    from {
-      transform: rotate(0deg) scale(0.5);
-    }
-  
-    12% {
-      transform: rotate(50deg) scale(0.6);
-   }
-    21% {
-     transform: rotate(-15deg) scale(0.4);
-    }
-    24% {
-      transform: rotate(17deg) scale(0.56);
-    }
-    27% {
-      transform: rotate(-12deg) scale(0.46);
-    }
-    29% {
-      transform: rotate(7deg) scale(0.53);
-    }
-    30% {
-      transform: rotate(-4deg) scale(0.48);
-    }
-    31% {
-      transform: rotate(2deg) scale(0.51);
-    }
-    32% {
-      transform: rotate(0deg) scale(0.47);
-    }
-    to {
-      transform: scale(0.5);
-    }
-  }*/
