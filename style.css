@@ -28,6 +28,13 @@ stroke-dashoffset: 2000;
 }*/
 }
 
+html, body { 
+  
+  -webkit-text-size-adjust: none;
+   -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+     text-size-adjust: none; }
+
 body {
   
     position:static;
@@ -41,6 +48,7 @@ body {
     display: flex;
     justify-content: center;
     align-items:center;
+    
   }
 
   #變白 {
@@ -617,4 +625,3 @@ body {
       transform: rotate(1440deg)  scale(0.5);
     }
   }
-
